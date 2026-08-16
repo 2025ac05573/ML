@@ -2,7 +2,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, matthews_corrcoef, roc_auc_score, confusion_matrix, classification_report
+from sklearn.metrics import (accuracy_score, precision_score, recall_score, 
+                             f1_score, matthews_corrcoef, roc_auc_score, 
+                             confusion_matrix, classification_report)
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -53,7 +55,14 @@ if uploaded_file is not None:
             
             # Form inference targets
             predictions = model.predict(X_test_scaled)
-            probabilities = model.predict_proba(X_test_scaled)[:, 1] if hasattr(model, "predict_proba") else predictions
+            
+            # Safe Multi-class AUC Score calculation
+            if hasattr(model, "predict_proba"):
+                probabilities = model.predict_proba(X_test_scaled)
+                # Using 'ovr' (One-vs-Rest) multi-class strategy for the 4 price ranges
+                auc_score = roc_auc_score(y_test, probabilities, multi_class='ovr')
+            else:
+                auc_score = 0.0
             
             # Component Columns Display
             col1, col2 = st.columns([1, 1])
@@ -64,7 +73,7 @@ if uploaded_file is not None:
                     "Metric Framework": ["Accuracy", "AUC Score", "Precision", "Recall", "F1 Score", "MCC Score"],
                     "Value Calculated": [
                         accuracy_score(y_test, predictions),
-                        roc_auc_score(y_test, probabilities),
+                        auc_score,
                         precision_score(y_test, predictions, average='macro'),
                         recall_score(y_test, predictions, average='macro'),
                         f1_score(y_test, predictions, average='macro'),
