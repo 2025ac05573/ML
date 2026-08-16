@@ -22,8 +22,16 @@ The objective is to predict structural target features leveraging multi-dimensio
 | Random Forest | 0.8925 | 0.9831 | 0.8916 | 0.8914 | 0.8905 | 0.8572 |
 
 ### Observations About Model Performance
-* **Logistic Regression:** Provides a steady baseline but underperforms on structural patterns requiring non-linear splits.
-* **Decision Tree:** Separates multi-tier features efficiently but is prone to overfitting variance shifts.
-* **kNN:** Struggles to handle noise ratios if local spatial neighborhoods are dense.
-* **Naive Bayes:** Computes fast calculations but exhibits performance drop-offs due to internal conditional feature independence assumptions.
-* **Random Forest (Ensemble):** **Overall Winner.** Successfully minimizes variant errors by leveraging bagged estimators to score high across all metrics.
+### Observations on Model Performance
+
+| ML Model Name | Observation about model performance |
+| :--- | :--- |
+| **Logistic Regression** | **Overall Winner for this dataset.** Achieved the highest accuracy (97.5%) and near-perfect AUC (0.9996). The feature relationships in the Mobile Price dataset are highly linear, allowing it to capture target boundaries exceptionally well. |
+| **Decision Tree** | Separates multi-tier features efficiently but is prone to overfitting variance shifts, leading to a moderate performance baseline (79.75% accuracy). |
+| **kNN** | Struggles to handle noise ratios if local spatial neighborhoods are dense, resulting in poor performance with an accuracy of only 53.00%. |
+| **Naive Bayes** | Computes fast calculations but exhibits performance drop-offs (79.75% accuracy) due to internal conditional feature independence assumptions. |
+| **Random Forest (Ensemble)** | Strong performance (89.25% accuracy). Successfully minimizes variant errors by leveraging bagged estimators to score high across metrics, though it slightly over-complicates the clean linear patterns captured better by Logistic Regression. |
+
+#### Overall Winner for your dataset?
+**Logistic Regression** is the clear overall winner for this dataset. It outperformed all other models across every single metric, including Accuracy (0.9750), AUC (0.9996), and MCC (0.9669). This demonstrates that the engineered features for mobile phone pricing share a highly predictable linear relationship with the target pricing tiers.
+
