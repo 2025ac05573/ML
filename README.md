@@ -8,8 +8,8 @@ The objective is to predict structural target features leveraging multi-dimensio
 * **Instances Evaluated:** 2000 rows
 * **Features Extracted:** 15 distinct structural numeric properties
 
-## c. GitHub Repository Link
-[Insert Your Live GitHub Link Here]
+## c. My GitHub Repository Link as below 
+[https://github.com/2025ac05573/ML/tree/main]
 
 ## d. Models Used & Comparative Baseline
 
