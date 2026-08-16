@@ -15,11 +15,11 @@ The objective is to predict structural target features leveraging multi-dimensio
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Logistic Regression | 0.8120 | 0.8430 | 0.8115 | 0.8120 | 0.8117 | 0.6240 |
-| Decision Tree | 0.8540 | 0.8710 | 0.8533 | 0.8540 | 0.8536 | 0.7080 |
-| kNN Classifier | 0.7910 | 0.8210 | 0.7905 | 0.7910 | 0.7907 | 0.5820 |
-| Naive Bayes | 0.7650 | 0.8110 | 0.7690 | 0.7650 | 0.7668 | 0.5310 |
-| Random Forest | 0.8980 | 0.9420 | 0.8976 | 0.8980 | 0.8978 | 0.7960 |
+| Logistic Regression | 0.975 | 0.9996 | 0.9751 | 0.9747 | 0.9744 | 0.9669 |
+| Decision Tree | 0.7975 | 0.9329 | 0.7982 | 0.7942 | 0.7949 | 0.7307 |
+| kNN Classifier | 0.53 | 0.7629 | 0.5514 | 0.5221 | 0.5282 | 0.3789 |
+| Naive Bayes | 0.7975 | 0.956 | 0.7983 | 0.7926 | 0.7929 | 0.7313 |
+| Random Forest | 0.8925 | 0.9831 | 0.8916 | 0.8914 | 0.8905 | 0.8572 |
 
 ### Observations About Model Performance
 * **Logistic Regression:** Provides a steady baseline but underperforms on structural patterns requiring non-linear splits.
